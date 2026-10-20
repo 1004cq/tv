@@ -5,17 +5,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { getPrivateM3uUrl } from './load-env.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const OUTPUT = path.join(ROOT, 'best.m3u')
 
 const SOURCES = [
-  // 私有订阅（来自 .env 的 M3U_PRIVATE_URL），优先参与测速
-  ...(getPrivateM3uUrl()
-    ? [{ name: 'private-m3u', url: getPrivateM3uUrl() }]
-    : []),
   {
     name: 'cs3306/IPTV-Sources',
     url: 'https://raw.githubusercontent.com/cs3306/IPTV-Sources/main/data/output/iptv_collection.m3u'

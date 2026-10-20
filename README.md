@@ -8,22 +8,10 @@
 
 ```bash
 npm install
-cp .env.example .env   # 填入你的私有 M3U（含 token）
 npm run dev
 ```
 
 打开 http://localhost:3000
-
-### 私有 / 付费 M3U
-
-在 `.env` 中配置（勿提交真实 token）：
-
-```bash
-M3U_PRIVATE_URL=http://z.zzr.cc/live.php?token=你的TOKEN&s=1&c=m
-```
-
-前端优先请求同源 `/api/playlist`（由开发服务器 / `npm start` 代理），token 不会打进前端包。  
-若私有源因 IP 限制或过期失败，会自动回退到 `best.m3u` 等公开源。
 
 ## 构建
 

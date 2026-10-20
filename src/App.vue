@@ -102,10 +102,6 @@ const categories = [
 
 const M3U_SOURCES = [
   {
-    label: '私有订阅源',
-    url: '/api/playlist'
-  },
-  {
     label: 'best.m3u（本仓库测速优选）',
     url: 'https://raw.githubusercontent.com/1004cq/tv/main/best.m3u'
   },
