@@ -29,7 +29,16 @@ node server/generate.js
 
 会拉取多个 M3U 源，对每个频道测速，输出 `best.m3u`（每个频道只保留最快的源）。
 
-前端可将 `src/App.vue` 中的 `M3U_URL` 改为本地的 `best.m3u`，或上传到自己的服务器。
+### 自动更新
+
+已配置 GitHub Actions（`.github/workflows/generate-m3u.yml`）：
+- 每天凌晨自动运行并提交 `best.m3u`
+- 也可在 Actions 页面手动触发
+
+前端可将 `src/App.vue` 中的 `M3U_URL` 改为：
+```js
+const M3U_URL = 'https://raw.githubusercontent.com/1004cq/tv/main/best.m3u'
+```
 
 ## 说明
 
