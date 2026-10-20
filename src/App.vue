@@ -2,14 +2,11 @@
   <div class="app">
     <header class="header">
       <div class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <div class="brand-text">
-          <h1>中国电视台</h1>
-          <p v-if="activeSourceLabel" class="source-info" :title="activeSourceUrl">
-            {{ activeSourceLabel }}
-            <span v-if="channels.length"> · {{ channels.length }} 频道</span>
-          </p>
-        </div>
+        <h1>中国电视台</h1>
+        <p v-if="activeSourceLabel" class="source-info" :title="activeSourceUrl">
+          {{ activeSourceLabel }}
+          <span v-if="channels.length"> · {{ channels.length }} 频道</span>
+        </p>
       </div>
     </header>
 
@@ -17,7 +14,6 @@
       <section v-if="!listLoading && !listError" class="channel-section">
         <div class="channel-toolbar">
           <label class="search-box">
-            <span class="search-icon" aria-hidden="true"></span>
             <input
               v-model.trim="searchQuery"
               type="search"
@@ -47,12 +43,11 @@
 
         <div v-if="filteredChannels.length" class="channel-list">
           <button
-            v-for="(channel, index) in filteredChannels"
+            v-for="channel in filteredChannels"
             :key="channel.name + channel.url"
             type="button"
             class="channel-item"
             :class="{ active: currentChannel?.url === channel.url }"
-            :style="{ '--i': index }"
             @click="playChannel(channel)"
           >
             <ChannelLogo :name="channel.name" />
@@ -77,10 +72,7 @@
           <div class="now-playing">
             <ChannelLogo :name="currentChannel.name" class="now-logo" />
             <div class="now-text">
-              <span class="now-label">
-                <span class="live-badge">LIVE</span>
-                正在播放
-              </span>
+              <span class="now-label"><span class="live-badge">直播</span>正在播放</span>
               <span class="now-name">{{ currentChannel.name }}</span>
             </div>
           </div>
@@ -94,10 +86,7 @@
             </div>
           </div>
         </template>
-        <div v-else class="status">
-          <p class="status-idle-title">选择频道开始观看</p>
-          <p class="status-idle-sub">支持搜索与分类筛选</p>
-        </div>
+        <div v-else class="status">请选择频道</div>
       </section>
     </div>
   </div>
