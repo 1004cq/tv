@@ -8,7 +8,7 @@
   --text: #eeeeee;
   --text-muted: #999999;
   --text-faint: #666666;
-  --accent: #e11d2e;
+  --accent: #dddddd;
   --header-h: 52px;
   --font: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
@@ -302,7 +302,7 @@ body {
 }
 
 .status-error {
-  color: #d88;
+  color: #bbb;
 }
 
 .status-spinner {
