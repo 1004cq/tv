@@ -60,7 +60,11 @@
             <span class="now-name">{{ currentChannel.name }}</span>
           </div>
           <div class="player-container">
-            <Player :url="currentChannel.url" :key="currentChannel.url" />
+            <Player
+              :url="currentChannel.url"
+              :backups="currentChannel.backups || []"
+              :key="currentChannel.url"
+            />
           </div>
         </template>
         <div v-else class="status">请选择频道</div>
@@ -117,6 +121,7 @@ function parseM3U(content) {
   const result = []
   let currentName = ''
   let currentGroup = ''
+  let backups = []
 
   for (const line of lines) {
     const trimmed = line.trim()
@@ -125,18 +130,24 @@ function parseM3U(content) {
       currentName = nameMatch ? nameMatch[1].trim() : '未知频道'
       const groupMatch = trimmed.match(/group-title="([^"]*)"/i)
       currentGroup = groupMatch ? groupMatch[1].trim() : ''
+      backups = []
+    } else if (trimmed.startsWith('#EXTBURL:')) {
+      const backup = trimmed.slice('#EXTBURL:'.length).trim()
+      if (backup.includes('.m3u8')) backups.push(backup)
     } else if (trimmed && !trimmed.startsWith('#')) {
       if (currentName && trimmed.includes('.m3u8')) {
         const category = classifyChannel(currentName, currentGroup)
         result.push({
           name: currentName,
           url: trimmed,
+          backups: [...backups],
           group: currentGroup,
           category
         })
       }
       currentName = ''
       currentGroup = ''
+      backups = []
     }
   }
   return result
