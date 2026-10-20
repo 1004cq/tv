@@ -84,7 +84,7 @@ body::before {
   align-items: center;
   gap: 14px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   animation: rise-in 0.55s ease both;
 }
@@ -509,7 +509,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 20px 24px;
+    padding: 12px 20px 20px;
     min-height: 0;
   }
 
@@ -517,7 +517,7 @@ body::before {
     flex: 0 1 auto;
     width: 100%;
     max-width: 100%;
-    max-height: calc(100vh - var(--header-h) - 120px);
+    max-height: calc(100vh - var(--header-h) - 88px);
     aspect-ratio: 16 / 9;
     border-radius: 14px;
     border: 1px solid var(--line);
@@ -525,12 +525,12 @@ body::before {
   }
 
   .channel-section {
-    width: 360px;
+    width: 340px;
     flex-shrink: 0;
     order: -1;
     overflow-y: auto;
     height: calc(100vh - var(--header-h));
-    padding: 18px 16px 20px;
+    padding: 18px 14px 20px;
     border-top: 0;
     border-right: 1px solid var(--line);
   }
@@ -545,16 +545,17 @@ body::before {
 
   .channel-list {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 6px;
   }
 
   .channel-item {
-    padding: 11px 12px;
+    padding: 9px 10px;
+    font-size: 13px;
   }
 
   .channel-item :deep(.channel-logo) {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .category-tab {

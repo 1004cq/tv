@@ -203,9 +203,18 @@ function classifyChannel(name, groupTitle = '') {
   return 'other'
 }
 
+function normalizeChannelKey(name = '') {
+  return name
+    .toLowerCase()
+    .replace(/[\s_\-·•]+/g, '')
+    .replace(/（.*?）|\(.*?\)/g, '')
+    .replace(/(超清|高清|标清|hd|sd|fhd|4k|uhd)$/i, '')
+}
+
 function parseM3U(content) {
   const lines = content.split('\n')
   const result = []
+  const seen = new Map()
   let currentName = ''
   let currentGroup = ''
   let backups = []
@@ -227,14 +236,29 @@ function parseM3U(content) {
         trimmed.includes('.m3u8') &&
         !isMetaChannel(currentName, currentGroup)
       ) {
-        const category = classifyChannel(currentName, currentGroup)
-        result.push({
-          name: currentName,
-          url: trimmed,
-          backups: [...backups],
-          group: currentGroup,
-          category
-        })
+        const key = normalizeChannelKey(currentName)
+        const existing = seen.get(key)
+        if (existing) {
+          if (trimmed !== existing.url && !existing.backups.includes(trimmed)) {
+            existing.backups.push(trimmed)
+          }
+          for (const b of backups) {
+            if (b !== existing.url && !existing.backups.includes(b)) {
+              existing.backups.push(b)
+            }
+          }
+        } else {
+          const category = classifyChannel(currentName, currentGroup)
+          const item = {
+            name: currentName,
+            url: trimmed,
+            backups: [...backups],
+            group: currentGroup,
+            category
+          }
+          seen.set(key, item)
+          result.push(item)
+        }
       }
       currentName = ''
       currentGroup = ''
