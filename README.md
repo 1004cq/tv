@@ -21,6 +21,16 @@ npm run build
 
 构建产物在 `dist/` 目录。
 
+## 生成最优 M3U（多源测速）
+
+```bash
+node server/generate.js
+```
+
+会拉取多个 M3U 源，对每个频道测速，输出 `best.m3u`（每个频道只保留最快的源）。
+
+前端可将 `src/App.vue` 中的 `M3U_URL` 改为本地的 `best.m3u`，或上传到自己的服务器。
+
 ## 说明
 
 - 默认从 [cs3306/IPTV-Sources](https://github.com/cs3306/IPTV-Sources) 拉取 M3U 播放列表
