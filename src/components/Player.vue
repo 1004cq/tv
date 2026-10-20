@@ -174,6 +174,8 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   background: #000;
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .player-wrap video {
@@ -181,6 +183,7 @@ onUnmounted(() => {
   height: 100%;
   object-fit: contain;
   display: block;
+  background: #000;
 }
 
 .player-overlay {
@@ -190,52 +193,92 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  background: rgba(0, 0, 0, 0.72);
-  color: #ddd;
-  padding: 20px;
+  gap: 16px;
+  background:
+    radial-gradient(500px 280px at 50% 40%, rgba(232, 93, 76, 0.12), transparent 65%),
+    rgba(5, 7, 11, 0.82);
+  color: var(--text-muted, #8b96a8);
+  padding: 24px;
   text-align: center;
   z-index: 2;
   pointer-events: none;
+  animation: fade-in 0.25s ease both;
+}
+
+.player-overlay p {
+  font-size: 14px;
+  letter-spacing: 0.02em;
 }
 
 .error-text {
+  max-width: 280px;
   font-size: 15px;
-  color: #f0f0f0;
-  line-height: 1.5;
+  color: #f0a8a0;
+  line-height: 1.55;
 }
 
 .retry-btn {
   pointer-events: auto;
   appearance: none;
-  border: 1px solid #444;
-  background: #1c1c1c;
-  color: #fff;
-  border-radius: 8px;
-  padding: 10px 22px;
+  border: 1px solid rgba(232, 93, 76, 0.45);
+  background: rgba(232, 93, 76, 0.16);
+  color: #ffd2cb;
+  border-radius: 10px;
+  padding: 11px 26px;
+  font-family: inherit;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
 }
 
-.retry-btn:hover,
+.retry-btn:hover {
+  background: rgba(232, 93, 76, 0.28);
+  border-color: rgba(232, 93, 76, 0.7);
+}
+
 .retry-btn:active {
-  background: #2a2a2a;
-  border-color: #ff3b30;
+  transform: scale(0.98);
+}
+
+.retry-btn:focus-visible {
+  outline: 2px solid rgba(232, 93, 76, 0.7);
+  outline-offset: 2px;
 }
 
 .spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid #333;
-  border-top-color: #ff3b30;
+  width: 34px;
+  height: 34px;
+  border: 2.5px solid rgba(255, 255, 255, 0.12);
+  border-top-color: var(--accent, #e85d4c);
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.75s linear infinite;
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .player-overlay,
+  .spinner,
+  .retry-btn {
+    animation: none !important;
+    transition: none !important;
   }
 }
 </style>

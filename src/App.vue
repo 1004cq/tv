@@ -1,28 +1,33 @@
 <template>
   <div class="app">
     <header class="header">
-      <h1>中国电视台</h1>
-      <p v-if="activeSourceLabel" class="source-info" :title="activeSourceUrl">
-        源：{{ activeSourceLabel }}
-        <span v-if="channels.length">· {{ channels.length }} 频道</span>
-      </p>
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div class="brand-text">
+          <h1>中国电视台</h1>
+          <p v-if="activeSourceLabel" class="source-info" :title="activeSourceUrl">
+            {{ activeSourceLabel }}
+            <span v-if="channels.length"> · {{ channels.length }} 频道</span>
+          </p>
+        </div>
+      </div>
     </header>
 
     <div class="main">
-      <!-- 频道列表（桌面左侧 / 手机下方） -->
       <section v-if="!listLoading && !listError" class="channel-section">
         <div class="channel-toolbar">
-          <div class="search-box">
+          <label class="search-box">
+            <span class="search-icon" aria-hidden="true"></span>
             <input
               v-model.trim="searchQuery"
               type="search"
               class="search-input"
-              placeholder="搜索频道..."
+              placeholder="搜索频道"
               enterkeyhint="search"
               autocomplete="off"
               aria-label="搜索频道"
             />
-          </div>
+          </label>
 
           <div class="category-tabs" role="tablist" aria-label="频道分类">
             <button
@@ -41,41 +46,58 @@
         </div>
 
         <div v-if="filteredChannels.length" class="channel-list">
-          <div
-            v-for="channel in filteredChannels"
+          <button
+            v-for="(channel, index) in filteredChannels"
             :key="channel.name + channel.url"
+            type="button"
             class="channel-item"
             :class="{ active: currentChannel?.url === channel.url }"
+            :style="{ '--i': index }"
             @click="playChannel(channel)"
           >
             <ChannelLogo :name="channel.name" />
             <span class="channel-name">{{ channel.name }}</span>
-          </div>
+            <span
+              v-if="currentChannel?.url === channel.url"
+              class="live-dot"
+              aria-hidden="true"
+            ></span>
+          </button>
         </div>
         <div v-else class="empty-hint">没有找到匹配的频道</div>
       </section>
 
-      <!-- 播放器 -->
       <section class="player-section">
-        <div v-if="listLoading" class="status">加载频道列表中...</div>
-        <div v-else-if="listError" class="status">{{ listError }}</div>
+        <div v-if="listLoading" class="status">
+          <div class="status-spinner"></div>
+          <p>加载频道列表中...</p>
+        </div>
+        <div v-else-if="listError" class="status status-error">{{ listError }}</div>
         <template v-else-if="currentChannel">
           <div class="now-playing">
             <ChannelLogo :name="currentChannel.name" class="now-logo" />
             <div class="now-text">
-              <span class="now-label">正在播放</span>
+              <span class="now-label">
+                <span class="live-badge">LIVE</span>
+                正在播放
+              </span>
               <span class="now-name">{{ currentChannel.name }}</span>
             </div>
           </div>
-          <div class="player-container">
-            <Player
-              :url="currentChannel.url"
-              :backups="currentChannel.backups || []"
-              :key="currentChannel.url"
-            />
+          <div class="player-shell">
+            <div class="player-container">
+              <Player
+                :url="currentChannel.url"
+                :backups="currentChannel.backups || []"
+                :key="currentChannel.url"
+              />
+            </div>
           </div>
         </template>
-        <div v-else class="status">请选择频道</div>
+        <div v-else class="status">
+          <p class="status-idle-title">选择频道开始观看</p>
+          <p class="status-idle-sub">支持搜索与分类筛选</p>
+        </div>
       </section>
     </div>
   </div>
@@ -171,7 +193,6 @@ function classifyChannel(name, groupTitle = '') {
   if (/地方/.test(groupTitle)) {
     return 'local'
   }
-  // 名称含省市且非卫视，归为地方台
   if (
     /(北京|上海|天津|重庆|河北|山西|辽宁|吉林|黑龙江|江苏|浙江|安徽|福建|江西|山东|河南|湖北|湖南|广东|海南|四川|贵州|云南|陕西|甘肃|青海|台湾|内蒙古|广西|西藏|宁夏|新疆|深圳|广州|杭州|南京|武汉|成都|苏州|青岛|大连|厦门|宁波)/.test(
       name

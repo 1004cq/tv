@@ -61,9 +61,10 @@ watch(
   flex-shrink: 0;
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: 9px;
   overflow: hidden;
-  background: #252525;
+  background: linear-gradient(160deg, #2a3342, #1a212c);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -74,17 +75,18 @@ watch(
   height: 100%;
   object-fit: contain;
   display: block;
-  background: #1a1a1a;
+  background: #12171f;
+  padding: 2px;
 }
 
 .channel-logo.placeholder {
-  background: #2a2a2a;
+  background: linear-gradient(160deg, #303848, #1c2430);
 }
 
 .logo-fallback {
   font-size: 12px;
-  font-weight: 600;
-  color: #888;
+  font-weight: 700;
+  color: #9aa6b8;
   line-height: 1;
   user-select: none;
 }
