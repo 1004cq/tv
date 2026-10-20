@@ -46,11 +46,24 @@ body {
 
 .now-playing {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   padding: 10px 14px;
   background: #111;
   border-bottom: 1px solid #222;
+}
+
+.now-playing .now-logo,
+.now-playing :deep(.channel-logo) {
+  width: 40px;
+  height: 40px;
+}
+
+.now-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
 .now-label {
@@ -168,16 +181,24 @@ body {
 }
 
 .channel-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: #1c1c1c;
   border: 1px solid #2a2a2a;
   border-radius: 10px;
-  padding: 14px 10px;
+  padding: 10px 12px;
   cursor: pointer;
   transition: all 0.15s ease;
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   line-height: 1.4;
   word-break: break-word;
+}
+
+.channel-name {
+  flex: 1;
+  min-width: 0;
 }
 
 .channel-item:hover,
@@ -262,7 +283,12 @@ body {
 
   .channel-item {
     text-align: left;
-    padding: 12px 14px;
+    padding: 10px 12px;
+  }
+
+  .channel-item :deep(.channel-logo) {
+    width: 34px;
+    height: 34px;
   }
 
   .category-tab {
@@ -287,8 +313,13 @@ body {
   }
 
   .channel-item {
-    padding: 12px 8px;
+    padding: 10px 8px;
     font-size: 13px;
+  }
+
+  .channel-item :deep(.channel-logo) {
+    width: 32px;
+    height: 32px;
   }
 
   .category-tab {

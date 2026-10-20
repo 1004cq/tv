@@ -44,7 +44,8 @@
             :class="{ active: currentChannel?.url === channel.url }"
             @click="playChannel(channel)"
           >
-            {{ channel.name }}
+            <ChannelLogo :name="channel.name" />
+            <span class="channel-name">{{ channel.name }}</span>
           </div>
         </div>
         <div v-else class="empty-hint">没有找到匹配的频道</div>
@@ -56,8 +57,11 @@
         <div v-else-if="listError" class="status">{{ listError }}</div>
         <template v-else-if="currentChannel">
           <div class="now-playing">
-            <span class="now-label">正在播放</span>
-            <span class="now-name">{{ currentChannel.name }}</span>
+            <ChannelLogo :name="currentChannel.name" class="now-logo" />
+            <div class="now-text">
+              <span class="now-label">正在播放</span>
+              <span class="now-name">{{ currentChannel.name }}</span>
+            </div>
           </div>
           <div class="player-container">
             <Player
@@ -76,6 +80,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import Player from './components/Player.vue'
+import ChannelLogo from './components/ChannelLogo.vue'
 
 const channels = ref([])
 const currentChannel = ref(null)
