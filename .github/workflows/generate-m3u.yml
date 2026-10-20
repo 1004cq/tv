@@ -2,15 +2,16 @@ name: Generate Best M3U
 
 on:
   schedule:
-    # 每天凌晨 3:00 UTC（北京时间 11:00）
+    # 每天 03:00 UTC（北京时间 11:00）
     - cron: '0 3 * * *'
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -22,12 +23,45 @@ jobs:
           node-version: '20'
 
       - name: Generate best.m3u
-        run: node server/generate.js
-
-      - name: Commit and push
+        id: generate
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          set -euo pipefail
+          echo "::group::Running server/generate.js"
+          node server/generate.js
+          echo "::endgroup::"
+
+          if [ ! -f best.m3u ]; then
+            echo "::error::best.m3u 未生成"
+            exit 1
+          fi
+
+          lines=$(wc -l < best.m3u | tr -d ' ')
+          size=$(wc -c < best.m3u | tr -d ' ')
+          channels=$(grep -c '^#EXTINF:' best.m3u || true)
+
+          echo "best.m3u lines=${lines} bytes=${size} channels=${channels}"
+
+          if [ "${channels}" -lt 1 ]; then
+            echo "::error::best.m3u 中没有可用频道（EXTINF=0）"
+            exit 1
+          fi
+
+          echo "channels=${channels}" >> "$GITHUB_OUTPUT"
+
+      - name: Commit only when content changed
+        run: |
+          set -euo pipefail
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
           git add best.m3u
-          git diff --staged --quiet || git commit -m "chore: update best.m3u"
+
+          if git diff --staged --quiet; then
+            echo "best.m3u 无实际变化，跳过提交"
+            exit 0
+          fi
+
+          channels=$(grep -c '^#EXTINF:' best.m3u || true)
+          git commit -m "chore: update best.m3u (${channels} channels)"
           git push
+          echo "已提交并推送 best.m3u（${channels} 个频道）"

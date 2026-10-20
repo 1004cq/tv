@@ -2,6 +2,10 @@
   <div class="app">
     <header class="header">
       <h1>中国电视台</h1>
+      <p v-if="activeSourceLabel" class="source-info" :title="activeSourceUrl">
+        源：{{ activeSourceLabel }}
+        <span v-if="channels.length">· {{ channels.length }} 频道</span>
+      </p>
     </header>
 
     <div class="main">
@@ -96,7 +100,55 @@ const categories = [
   { label: '地方台', value: 'local' }
 ]
 
-const M3U_URL = 'https://raw.githubusercontent.com/cs3306/IPTV-Sources/main/data/output/iptv_collection.m3u'
+const M3U_SOURCES = [
+  {
+    label: 'best.m3u（本仓库测速优选）',
+    url: 'https://raw.githubusercontent.com/1004cq/tv/main/best.m3u'
+  },
+  {
+    label: 'CCSH/IPTV live',
+    url: 'https://raw.githubusercontent.com/CCSH/IPTV/main/live.m3u'
+  },
+  {
+    label: 'cs3306/IPTV-Sources',
+    url: 'https://raw.githubusercontent.com/cs3306/IPTV-Sources/main/data/output/iptv_collection.m3u'
+  },
+  {
+    label: 'fanmingming/live ipv6',
+    url: 'https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u'
+  }
+]
+
+const activeSourceLabel = ref('')
+const activeSourceUrl = ref('')
+
+const MAX_CHANNELS = 120
+
+async function loadPlaylist() {
+  const errors = []
+
+  for (const source of M3U_SOURCES) {
+    try {
+      const res = await fetch(source.url, { cache: 'no-cache' })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const text = await res.text()
+      if (!text.includes('#EXTINF')) throw new Error('不是有效的 M3U')
+      const parsed = parseM3U(text)
+      if (!parsed.length) throw new Error('频道列表为空')
+
+      channels.value = parsed.slice(0, MAX_CHANNELS)
+      activeSourceLabel.value = source.label
+      activeSourceUrl.value = source.url
+      currentChannel.value = channels.value[0] || null
+      return
+    } catch (e) {
+      errors.push(`${source.label}: ${e.message || e}`)
+      console.warn('加载源失败:', source.url, e)
+    }
+  }
+
+  throw new Error(errors.join('；') || '所有源均加载失败')
+}
 
 function classifyChannel(name, groupTitle = '') {
   const text = `${groupTitle} ${name}`
@@ -170,13 +222,7 @@ const filteredChannels = computed(() => {
 
 onMounted(async () => {
   try {
-    const res = await fetch(M3U_URL)
-    if (!res.ok) throw new Error('加载失败')
-    const text = await res.text()
-    channels.value = parseM3U(text).slice(0, 80)
-    if (channels.value.length > 0) {
-      currentChannel.value = channels.value[0]
-    }
+    await loadPlaylist()
   } catch (e) {
     listError.value = '加载频道失败：' + e.message
   } finally {
