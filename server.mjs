@@ -6,6 +6,7 @@ import http from 'node:http'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { getPrivateM3uUrl } from './server/load-env.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DIST = path.join(__dirname, 'dist')
@@ -133,7 +134,61 @@ function serveStatic(req, res) {
   fs.createReadStream(filePath).pipe(res)
 }
 
+async function handlePrivatePlaylist(_req, res) {
+  const target = getPrivateM3uUrl()
+  if (!target) {
+    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' })
+    res.end('未配置 M3U_PRIVATE_URL（请复制 .env.example 为 .env）')
+    return
+  }
+  try {
+    const upstream = await fetch(target, {
+      redirect: 'follow',
+      headers: {
+        'User-Agent': 'tv-playlist/1.0',
+        Accept: 'application/vnd.apple.mpegurl, application/x-mpegURL, text/plain, */*'
+      }
+    })
+    const text = await upstream.text()
+    if (!text.includes('#EXTINF') || /^\s*<!DOCTYPE|^\s*<html/i.test(text)) {
+      res.writeHead(502, {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      })
+      res.end(
+        '私有源未返回有效 M3U（可能已过期、IP 超限，或被重定向到网页）。请在允许的网络环境重试。'
+      )
+      return
+    }
+    res.writeHead(200, {
+      'Content-Type': 'application/vnd.apple.mpegurl; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-store'
+    })
+    res.end(text)
+  } catch (err) {
+    res.writeHead(502, { 'Content-Type': 'text/plain; charset=utf-8' })
+    res.end('拉取私有 M3U 失败: ' + (err?.message || 'unknown'))
+  }
+}
+
 const server = http.createServer((req, res) => {
+  const pathname = (req.url || '').split('?')[0]
+
+  if (pathname === '/api/playlist') {
+    if (req.method === 'OPTIONS') {
+      res.writeHead(204, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS',
+        'Access-Control-Allow-Headers': '*'
+      })
+      res.end()
+      return
+    }
+    handlePrivatePlaylist(req, res)
+    return
+  }
+
   if ((req.url || '').startsWith('/api/proxy')) {
     if (req.method === 'OPTIONS') {
       res.writeHead(204, {
@@ -151,5 +206,11 @@ const server = http.createServer((req, res) => {
 })
 
 server.listen(PORT, () => {
+  const privateConfigured = !!getPrivateM3uUrl()
   console.log(`TV server running at http://localhost:${PORT}`)
+  console.log(
+    privateConfigured
+      ? '私有 M3U: 已配置 → /api/playlist'
+      : '私有 M3U: 未配置（设置 .env 中 M3U_PRIVATE_URL）'
+  )
 })

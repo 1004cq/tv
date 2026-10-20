@@ -102,6 +102,10 @@ const categories = [
 
 const M3U_SOURCES = [
   {
+    label: '私有订阅源',
+    url: '/api/playlist'
+  },
+  {
     label: 'best.m3u（本仓库测速优选）',
     url: 'https://raw.githubusercontent.com/1004cq/tv/main/best.m3u'
   },
@@ -153,8 +157,9 @@ async function loadPlaylist() {
 function isMetaChannel(name = '', group = '') {
   const text = `${group} ${name}`
   return (
-    /更新时间|update\s*time/i.test(text) ||
-    /^\d{8}([_\s-]?\d{2}:\d{2})?$/.test(name.trim())
+    /更新时间|update\s*time|必看说明|已过期|IP数超限|有疑问|添加微信|微信leo/i.test(
+      text
+    ) || /^\d{8}([_\s-]?\d{2}:\d{2})?$/.test(name.trim())
   )
 }
 

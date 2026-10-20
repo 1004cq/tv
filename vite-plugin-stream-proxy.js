@@ -3,7 +3,49 @@
  * - 绕过浏览器 CORS
  * - 把 HTTP 源转到同源，避免 HTTPS 站点混合内容拦截
  * - 重写 m3u8 内的相对 / 绝对地址，让分片也走代理
+ * - /api/playlist 代理私有 M3U（token 仅存在服务端）
  */
+import { getPrivateM3uUrl } from './server/load-env.js'
+
+async function handlePrivatePlaylist(_req, res) {
+  const target = getPrivateM3uUrl()
+  if (!target) {
+    res.statusCode = 404
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    res.end('未配置 M3U_PRIVATE_URL（请复制 .env.example 为 .env）')
+    return
+  }
+
+  try {
+    const upstream = await fetch(target, {
+      redirect: 'follow',
+      headers: {
+        'User-Agent': 'tv-playlist/1.0',
+        Accept: 'application/vnd.apple.mpegurl, application/x-mpegURL, text/plain, */*'
+      }
+    })
+    const text = await upstream.text()
+    if (!text.includes('#EXTINF') || /^\s*<!DOCTYPE|^\s*<html/i.test(text)) {
+      res.statusCode = 502
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.end(
+        '私有源未返回有效 M3U（可能已过期、IP 超限，或被重定向到网页）。请在允许的网络环境重试。'
+      )
+      return
+    }
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'application/vnd.apple.mpegurl; charset=utf-8')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Cache-Control', 'no-store')
+    res.end(text)
+  } catch (err) {
+    res.statusCode = 502
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+    res.end('拉取私有 M3U 失败: ' + (err?.message || 'unknown'))
+  }
+}
+
 function isPlaylist(contentType = '', url = '') {
   const t = contentType.toLowerCase()
   return (
@@ -109,7 +151,21 @@ async function handleProxy(req, res) {
 
 function attach(middlewares) {
   middlewares.use((req, res, next) => {
-    const url = req.url || ''
+    const url = (req.url || '').split('?')[0]
+
+    if (url === '/api/playlist') {
+      if (req.method === 'OPTIONS') {
+        res.statusCode = 204
+        res.setHeader('Access-Control-Allow-Origin', '*')
+        res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS')
+        res.setHeader('Access-Control-Allow-Headers', '*')
+        res.end()
+        return
+      }
+      handlePrivatePlaylist(req, res)
+      return
+    }
+
     if (!url.startsWith('/api/proxy')) return next()
 
     if (req.method === 'OPTIONS') {
