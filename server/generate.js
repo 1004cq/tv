@@ -102,7 +102,10 @@ function parseM3U(content, sourceName) {
       group = t.match(/group-title="([^"]*)"/i)?.[1]?.trim() || ''
     } else if (t && !t.startsWith('#') && /\.m3u8(\?|$)/i.test(t)) {
       const cleaned = cleanName(name)
-      if (cleaned) {
+      const isMeta =
+        /更新时间|update\s*time/i.test(`${group} ${name}`) ||
+        /^\d{8}([_\s-]?\d{2}:\d{2})?$/.test(String(name).trim())
+      if (cleaned && !isMeta) {
         channels.push({
           name: cleaned,
           key: dedupeKey(cleaned),

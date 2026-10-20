@@ -150,6 +150,14 @@ async function loadPlaylist() {
   throw new Error(errors.join('；') || '所有源均加载失败')
 }
 
+function isMetaChannel(name = '', group = '') {
+  const text = `${group} ${name}`
+  return (
+    /更新时间|update\s*time/i.test(text) ||
+    /^\d{8}([_\s-]?\d{2}:\d{2})?$/.test(name.trim())
+  )
+}
+
 function classifyChannel(name, groupTitle = '') {
   const text = `${groupTitle} ${name}`
 
@@ -192,7 +200,11 @@ function parseM3U(content) {
       const backup = trimmed.slice('#EXTBURL:'.length).trim()
       if (backup.includes('.m3u8')) backups.push(backup)
     } else if (trimmed && !trimmed.startsWith('#')) {
-      if (currentName && trimmed.includes('.m3u8')) {
+      if (
+        currentName &&
+        trimmed.includes('.m3u8') &&
+        !isMetaChannel(currentName, currentGroup)
+      ) {
         const category = classifyChannel(currentName, currentGroup)
         result.push({
           name: currentName,
