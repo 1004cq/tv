@@ -4,25 +4,31 @@
       <h1>中国电视台</h1>
     </header>
 
-    <div v-if="loading" class="status">加载中...</div>
-    <div v-else-if="error" class="status">{{ error }}</div>
-
-    <div v-else>
-      <div class="channel-list">
-        <div
-          v-for="channel in channels"
-          :key="channel.name"
-          class="channel-item"
-          :class="{ active: currentChannel?.name === channel.name }"
-          @click="playChannel(channel)"
-        >
-          {{ channel.name }}
+    <div class="main">
+      <!-- 播放器 -->
+      <section class="player-section">
+        <div v-if="loading" class="status">加载中...</div>
+        <div v-else-if="error" class="status">{{ error }}</div>
+        <div v-else-if="currentChannel" class="player-container">
+          <Player :url="currentChannel.url" :key="currentChannel.url" />
         </div>
-      </div>
+        <div v-else class="status">请选择频道</div>
+      </section>
 
-      <div v-if="currentChannel" class="player-container">
-        <Player :url="currentChannel.url" :key="currentChannel.url" />
-      </div>
+      <!-- 频道列表 -->
+      <section v-if="!loading && !error" class="channel-section">
+        <div class="channel-list">
+          <div
+            v-for="channel in channels"
+            :key="channel.name + channel.url"
+            class="channel-item"
+            :class="{ active: currentChannel?.url === channel.url }"
+            @click="playChannel(channel)"
+          >
+            {{ channel.name }}
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -36,7 +42,6 @@ const currentChannel = ref(null)
 const loading = ref(true)
 const error = ref('')
 
-// 示例 M3U 地址（可替换为 cs3306 等源）
 const M3U_URL = 'https://raw.githubusercontent.com/cs3306/IPTV-Sources/main/data/output/iptv_collection.m3u'
 
 function parseM3U(content) {
@@ -64,7 +69,7 @@ onMounted(async () => {
     const res = await fetch(M3U_URL)
     if (!res.ok) throw new Error('加载失败')
     const text = await res.text()
-    channels.value = parseM3U(text).slice(0, 50) // 先取前50个
+    channels.value = parseM3U(text).slice(0, 80)
     if (channels.value.length > 0) {
       currentChannel.value = channels.value[0]
     }
