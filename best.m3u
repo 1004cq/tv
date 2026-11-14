@@ -1,13 +1,13 @@
 #EXTM3U
-#EXT-X-TV-CHANNELS: 196
+#EXT-X-TV-CHANNELS: 197
 #EXTINF:-1 tvg-name="CCTV1" group-title="中国大陆 · 央视",CCTV1
-http://38.75.136.137:82/live2/sxy.m3u8?id=cctv1&usign=E8a0pEkGBVPiQHXezgayYA
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv1hd.m3u8?auth=test20251009
-#EXTBURL:http://74.91.26.218:82/live/cctv14hd.m3u8
+http://38.75.136.137:98/gslb/dsdqca/cctv1hd.m3u8?auth=test20251009
+#EXTBURL:http://38.75.136.137:82/live2/sxy.m3u8?id=cctv1&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://74.91.26.218:82/live/cctv13hd.m3u8
 #EXTINF:-1 tvg-name="CCTV10" group-title="央视频道",CCTV10
-http://38.75.136.137:98/gslb/dsdqca/cctv10hd.m3u8?auth=test20251009
+http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv10hd&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv10hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:82/live2/sxy.m3u8?id=cctv10&usign=E8a0pEkGBVPiQHXezgayYA
-#EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv10hd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="CCTV11" group-title="央视频道",CCTV11
 http://38.75.136.137:98/gslb/dsdqca/cctv11hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/ahwshd.m3u8?auth=test20251009
@@ -21,13 +21,13 @@ http://38.75.136.137:98/gslb/dsdqca/cctv13hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:82/live2/sxy.m3u8?id=cctv13&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv14hd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="CCTV14" group-title="央视频道",CCTV14
-http://38.75.136.137:98/gslb/dsdqca/cctv14hd.m3u8?auth=test20251009
+http://38.75.136.137:98/gslb/dsdqca/hunwshd.m3u8?auth=test20251009
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv14hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/chcdzdyhd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/hunwshd.m3u8?auth=test20251009
 #EXTINF:-1 tvg-name="CCTV15" group-title="央视频道",CCTV15
 http://38.75.136.137:98/gslb/dsdqca/cctv15hd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/jxwshd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/chcymdyhd.m3u8?auth=test20251009
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/jxwshd.m3u8?auth=test20251009
 #EXTINF:-1 tvg-name="CCTV16" group-title="央视频道",CCTV16
 http://38.75.136.137:98/gslb/dsdqca/chcjtyyhd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv16hd.m3u8?auth=test20251009
@@ -37,17 +37,17 @@ http://38.75.136.137:98/gslb/dsdqca/fhzwhd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv17hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv17hd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="CCTV2" group-title="中国大陆 · 央视",CCTV2
-http://38.75.136.137:98/gslb/dsdqca/cctv2hd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv2hd&usign=E8a0pEkGBVPiQHXezgayYA
+http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv2hd&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv2hd.m3u8?auth=test20251009
 #EXTBURL:http://198.204.228.26/live/cctv2hd.m3u8
 #EXTINF:-1 tvg-name="CCTV3" group-title="中国大陆 · 央视",CCTV3
-http://38.75.136.137:98/gslb/dsdqca/cctv3hd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/scwshd.m3u8?auth=test20251009
-#EXTBURL:http://74.91.26.218:82/live/cctv3hd.m3u8
+http://38.75.136.137:98/gslb/dsdqca/scwshd.m3u8?auth=test20251009
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv3hd.m3u8?auth=test20251009
+#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=cctv3hd
 #EXTINF:-1 tvg-name="CCTV4" group-title="央视频道",CCTV4
-http://38.75.136.137:98/gslb/dsdqca/hljwshd.m3u8?auth=test20251009
+http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv4hd&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/hljwshd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/ynwshd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv4hd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="CCTV4K" group-title="央视频道",CCTV4K
 http://107.150.52.50:82/live/cctv4k.m3u8
 #EXTBURL:http://107.150.60.122/live/cctv4k.m3u8
@@ -63,30 +63,28 @@ http://74.91.26.218:82/live/cctv5p.m3u8
 #EXTINF:-1 tvg-name="CCTV6" group-title="中国大陆 · 影视",CCTV6
 http://38.75.136.137:98/gslb/dsdqca/cctv6hd.m3u8?auth=test20251009
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/hinwshd.m3u8?auth=test20251009
-#EXTBURL:http://69.30.245.50/live/cctv6.m3u8
+#EXTBURL:http://198.204.228.26/live/cctv6hd.m3u8
 #EXTINF:-1 tvg-name="CCTV7" group-title="中国大陆 · 央视",CCTV7
-http://38.75.136.137:98/gslb/dsdqca/cctv7hd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv7hd&usign=E8a0pEkGBVPiQHXezgayYA
+http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv7hd&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv7hd.m3u8?auth=test20251009
 #EXTBURL:http://74.91.26.218:82/live/cctv7hd.m3u8
 #EXTINF:-1 tvg-name="CCTV8" group-title="中国大陆 · 央视",CCTV8
-http://38.75.136.137:98/gslb/dsdqca/cctv8hd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/gxwshd.m3u8?auth=test20251009
-#EXTBURL:http://74.91.26.218:82/live/cctv8hd.m3u8
+http://38.75.136.137:98/gslb/dsdqca/gxwshd.m3u8?auth=test20251009
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv8hd.m3u8?auth=test20251009
+#EXTBURL:http://69.30.245.50/live/cctv8.m3u8
 #EXTINF:-1 tvg-name="CCTV8K" group-title="央视频道",CCTV8K
 http://107.150.52.50:82/live/cctv8k.m3u8
 #EXTBURL:http://198.204.240.250:82/live/cctv8k.m3u8
-#EXTBURL:http://192.151.150.154/live/cctv8k.m3u8
+#EXTBURL:http://107.150.60.122/live/cctv8k.m3u8
 #EXTINF:-1 tvg-name="CCTV9" group-title="中国大陆 · 纪录",CCTV9
 http://38.75.136.137:82/live2/cctvxw.m3u8?bt=2&id=cctv9hd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqca/cctv9hd.m3u8?auth=test20251009
 #EXTBURL:http://74.91.26.218:82/live/cctv9hd.m3u8
 #EXTINF:-1 tvg-name="CGTN" group-title="中国大陆 · 央视",CGTN
-https://0472.org/hls/cgtn.m3u8
-#EXTBURL:https://amg00405-rakutentv-cgtn-rakuten-i9tar.amagi.tv/master.m3u8
+https://amg00405-rakutentv-cgtn-rakuten-i9tar.amagi.tv/master.m3u8
+#EXTBURL:https://0472.org/hls/cgtn.m3u8
 #EXTINF:-1 tvg-name="CGTN Arabic" group-title="中国大陆 · 央视",CGTN Arabic
 https://dash3.antik.sk/live/test_cgtn_arb_tizen/playlist.m3u8
-#EXTINF:-1 tvg-name="CGTN Documentary" group-title="中国大陆 · 纪录",CGTN Documentary
-https://amg00405-rakutentv-cgtndocumentary-rakuten-0ql8j.amagi.tv/master.m3u8
 #EXTINF:-1 tvg-name="CGTN French" group-title="中国大陆 · 央视",CGTN French
 https://amg01314-cgtn-amg01314c2-rakuten-us-1319.playouts.now.amagi.tv/cgtn-fr-rakuten/playlist.m3u8
 #EXTINF:-1 tvg-name="CGTN Global Biz" group-title="中国大陆 · 央视",CGTN Global Biz
@@ -107,9 +105,9 @@ https://0472.org/hls/cgtnx.m3u8
 #EXTINF:-1 tvg-name="CGTN英语" group-title="央视频道",CGTN英语
 https://0472.org/hls/cgtn.m3u8
 #EXTINF:-1 tvg-name="安多卫视" group-title="卫视频道",安多卫视
-http://121.199.48.54/live1/qhtv.m3u8?id=qhzy&usign=E8a0pEkGBVPiQHXezgayYA
+http://121.199.48.54/live1/xuexi.m3u8?id=qhzy&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://121.199.48.54/live1/qhtv.m3u8?id=qhzy&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://121.199.48.54/live1/xuexi1.m3u8?id=qhzy&usign=E8a0pEkGBVPiQHXezgayYA
-#EXTBURL:http://121.199.48.54/live1/xuexi.m3u8?id=qhzy&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="安徽卫视" group-title="中国大陆 · 卫视",安徽卫视
 http://38.75.136.137:82/live2/ahtv2.m3u8?id=ahwshd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://107.150.60.122/live/ahwshd.m3u8
@@ -118,8 +116,8 @@ http://38.75.136.137:98/gslb/dsdqca/bjwshd.m3u8?auth=test20251009
 #EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=bjwshd
 #EXTINF:-1 tvg-name="兵团卫视" group-title="卫视频道",兵团卫视
 http://204.12.221.218:8181/3m1080p/btws.m3u8
-#EXTBURL:http://sagrad.org:8181/3m1080p/btws.m3u8
 #EXTBURL:http://198.204.228.26/live/btws.m3u8
+#EXTBURL:http://sagrad.org:8181/3m1080p/btws.m3u8
 #EXTINF:-1 tvg-name="重庆卫视" group-title="中国大陆 · 卫视",重庆卫视
 http://38.75.136.137:98/gslb/dsdqca/cqwshd.m3u8?auth=test20251009
 #EXTBURL:http://107.150.60.122/live/cqwshd.m3u8
@@ -129,31 +127,31 @@ http://204.12.221.218:8181/3m1080p/nfws.m3u8
 #EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/nfws.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="东方卫视" group-title="中国大陆 · 卫视",东方卫视
 http://38.75.136.137:98/gslb/dsdqca/dfwshd.m3u8?auth=test20251009
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/dfwshd.m3u8?auth=testpub
+#EXTBURL:http://107.150.60.122/live/dfwshd.m3u8
 #EXTINF:-1 tvg-name="东南卫视" group-title="中国大陆 · 卫视",东南卫视
 http://38.75.136.137:98/gslb/dsdqca/dnwshd.m3u8?auth=test20251009
-#EXTBURL:http://107.150.60.122/live/dnwshd.m3u8
+#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=dnwshd
 #EXTINF:-1 tvg-name="东森美洲卫视" group-title="国际台",东森美洲卫视
-http://38.64.72.148:80/hls/modn/list/2015/chunklist0.m3u8
-#EXTBURL:http://38.64.72.148/hls/modn/list/2015/playlist.m3u8
+http://38.64.72.148/hls/modn/list/2015/playlist.m3u8
+#EXTBURL:http://38.64.72.148:80/hls/modn/list/2015/chunklist0.m3u8
 #EXTINF:-1 tvg-name="甘肃卫视" group-title="中国大陆 · 卫视",甘肃卫视
 http://204.12.221.218:8181/3m1080p/gsws.m3u8
-#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gswshd
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/gswshd.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="广东卫视" group-title="中国大陆 · 卫视",广东卫视
 http://38.75.136.137:82/live2/gdtv.m3u8?id=gdwshd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://107.150.60.122/live/gdwshd.m3u8
 #EXTINF:-1 tvg-name="广西卫视" group-title="中国大陆 · 卫视",广西卫视
 http://38.75.136.137:98/gslb/dsdqca/gxwshd.m3u8?auth=test20251009
-#EXTBURL:http://107.150.60.122/live/gxwshd.m3u8
+#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gxwshd
 #EXTINF:-1 tvg-name="贵州卫视" group-title="中国大陆 · 卫视",贵州卫视
 http://38.75.136.137:98/gslb/dsdqpub/gzwshd.m3u8?auth=testpub
-#EXTBURL:http://204.12.221.218:8181/3m1080p/gzws.m3u8
+#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=gzwshd
 #EXTINF:-1 tvg-name="海南卫视" group-title="卫视频道",海南卫视
-http://38.75.136.137:98/gslb/dsdqpub/hinwshd.m3u8?auth=testpub
-#EXTBURL:http://204.12.221.218:8181/3m1080p/lyws.m3u8
+http://204.12.221.218:8181/3m1080p/lyws.m3u8
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/hinwshd.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="海峡卫视" group-title="卫视频道",海峡卫视
-http://121.199.48.54/live1/fjtv.m3u8?id=hxws&usign=E8a0pEkGBVPiQHXezgayYA
-#EXTBURL:http://121.199.48.54/live1/jsbv1.m3u8?id=hxws&usign=E8a0pEkGBVPiQHXezgayYA
+http://121.199.48.54/live1/jsbv1.m3u8?id=hxws&usign=E8a0pEkGBVPiQHXezgayYA
+#EXTBURL:http://121.199.48.54/live1/fjtv.m3u8?id=hxws&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://8.138.7.223/tv/hxws.m3u8
 #EXTINF:-1 tvg-name="河北卫视" group-title="中国大陆 · 卫视",河北卫视
 http://192.151.150.154/live/hebws.m3u8
@@ -161,30 +159,30 @@ http://192.151.150.154/live/hebws.m3u8
 #EXTINF:-1 tvg-name="河南卫视" group-title="中国大陆 · 卫视",河南卫视
 http://107.150.60.122/live/hawshd.m3u8
 #EXTINF:-1 tvg-name="黑龙江卫视" group-title="中国大陆 · 卫视",黑龙江卫视
-http://107.150.60.122/live/hljwshd.m3u8
+http://63.141.230.178:82/gslb/zbdq5.m3u8?id=hljwshd
 #EXTBURL:https://epg.pw/stream/c6c1262d0b35e59eac22bf513395f00f8b60cc5eab41f598412cdf8269312f32.m3u8
 #EXTINF:-1 tvg-name="湖北卫视" group-title="中国大陆 · 卫视",湖北卫视
 http://38.75.136.137:82/live2/hbtv.m3u8?id=hbwshd&usign=E8a0pEkGBVPiQHXezgayYA@@Referer=https://m.hbtv.com.cn/@@
 #EXTBURL:http://107.150.60.122/live/hbwshd.m3u8
 #EXTINF:-1 tvg-name="湖南卫视" group-title="中国大陆 · 卫视",湖南卫视
 http://38.75.136.137:98/gslb/dsdqca/hnwshd.m3u8?auth=test20251009
-#EXTBURL:http://74.91.26.218:82/live/hnwshd.m3u8
+#EXTBURL:http://107.150.60.122/live/hnwshd.m3u8
 #EXTINF:-1 tvg-name="吉林卫视" group-title="中国大陆 · 卫视",吉林卫视
 http://38.75.136.137:82/live2/jltv.m3u8?id=jlwshd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://107.150.60.122/live/jlwshd.m3u8
 #EXTINF:-1 tvg-name="江苏卫视" group-title="中国大陆 · 卫视",江苏卫视
 http://38.75.136.137:98/gslb/dsdqca/jswshd.m3u8?auth=test20251009
-#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jswshd
+#EXTBURL:http://107.150.60.122/live/jswshd.m3u8
 #EXTINF:-1 tvg-name="江西卫视" group-title="中国大陆 · 卫视",江西卫视
 http://38.75.136.137:82/live2/jxtv.m3u8?id=jxwshd&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=jxwshd
 #EXTINF:-1 tvg-name="康巴卫视" group-title="卫视频道",康巴卫视
-http://121.199.48.54/live1/xuexi1.m3u8?id=kbws&usign=E8a0pEkGBVPiQHXezgayYA
-#EXTBURL:http://121.199.48.54/live1/kbws.m3u8?id=kbws&usign=E8a0pEkGBVPiQHXezgayYA@@referer=https://www.kangbatv.com/@@
+http://121.199.48.54/live1/kbws.m3u8?id=kbws&usign=E8a0pEkGBVPiQHXezgayYA@@referer=https://www.kangbatv.com/@@
+#EXTBURL:http://121.199.48.54/live1/xuexi1.m3u8?id=kbws&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://121.199.48.54/live1/xuexi.m3u8?id=kbws&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTINF:-1 tvg-name="辽宁卫视" group-title="中国大陆 · 卫视",辽宁卫视
 http://38.75.136.137:98/gslb/dsdqca/lnwshd.m3u8?auth=test20251009
-#EXTBURL:http://204.12.221.218:8181/3m1080p/lnws.m3u8
+#EXTBURL:http://107.150.60.122/live/lnwshd.m3u8
 #EXTINF:-1 tvg-name="南方卫视" group-title="卫视频道",南方卫视
 http://120.237.39.10:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1
 #EXTBURL:http://120.198.95.220:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1
@@ -192,21 +190,21 @@ http://120.237.39.10:9901/tsfile/live/1012_1.m3u8?key=txiptv&playlive=1&down=1
 http://38.75.136.137:82/live2/nmtv.m3u8?id=nmgws&usign=E8a0pEkGBVPiQHXezgayYA
 #EXTBURL:http://107.150.60.122/live/nmgws.m3u8
 #EXTINF:-1 tvg-name="宁夏卫视" group-title="中国大陆 · 卫视",宁夏卫视
-http://107.150.60.122/live/nxws.m3u8
-#EXTBURL:http://sagrad.org:8181/3m1080p/nxws.m3u8
+http://sagrad.org:8181/3m1080p/nxws.m3u8
+#EXTBURL:http://107.150.60.122/live/nxws.m3u8
 #EXTINF:-1 tvg-name="农林卫视" group-title="卫视频道",农林卫视
 http://8.138.7.223/【公众号：榴芒电视】/农林卫视.m3u8
-#EXTBURL:http://222.90.21.30:9901/hls/66/index.m3u8
+#EXTBURL:http://sagrad.org:8181/3m1080p/snnl.m3u8
 #EXTBURL:http://120.76.248.139/live/bfgd/4200000122.m3u8
 #EXTINF:-1 tvg-name="青海卫视" group-title="中国大陆 · 卫视",青海卫视
 http://204.12.221.218:8181/3m1080p/qhws.m3u8
 #EXTBURL:http://107.150.60.122/live/qhws.m3u8
 #EXTINF:-1 tvg-name="人间卫视" group-title="中国大陆 · 卫视",人间卫视
 http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8
-#EXTINF:-1 tvg-name="三沙卫视" group-title="卫视频道",三沙卫视
+#EXTINF:-1 tvg-name="三沙卫视" group-title="海南",三沙卫视
 http://sagrad.org:8181/3m1080p/ssws.m3u8
-#EXTBURL:http://204.12.221.218:8181/3m1080p/ssws.m3u8
 #EXTBURL:http://107.150.60.122/live/ssws.m3u8
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/ssws.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="厦门卫视" group-title="福建",厦门卫视
 http://204.12.221.218:8181/3m1080p/xmws.m3u8
 #EXTBURL:http://sagrad.org:8181/3m1080p/xmws.m3u8
@@ -215,14 +213,16 @@ http://204.12.221.218:8181/3m1080p/xmws.m3u8
 http://38.75.136.137:98/gslb/dsdqca/sdwshd.m3u8?auth=test20251009
 #EXTBURL:http://107.150.60.122/live/sdwshd.m3u8
 #EXTINF:-1 tvg-name="山西卫视" group-title="中国大陆 · 卫视",山西卫视
-http://107.150.60.122/live/sxwshd.m3u8
-#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/sxwshd.m3u8?auth=testpub
+http://38.75.136.137:98/gslb/dsdqpub/sxwshd.m3u8?auth=testpub
+#EXTBURL:http://204.12.221.218:8181/3m1080p/sxws.m3u8
 #EXTINF:-1 tvg-name="陕西卫视" group-title="中国大陆 · 卫视",陕西卫视
 http://107.150.60.122/live/snwshd.m3u8
 #EXTBURL:http://192.151.150.154/live/snwshd.m3u8
+#EXTINF:-1 tvg-name="上海卫视" group-title="中国大陆 · 卫视",上海卫视
+http://222.169.85.8:9901/tsfile/live/0018_1.m3u8
 #EXTINF:-1 tvg-name="深圳卫视" group-title="中国大陆 · 卫视",深圳卫视
-http://38.75.136.137:98/gslb/dsdqpub/szwshd.m3u8?auth=testpub
-#EXTBURL:http://63.141.230.178:82/gslb/zbdq5.m3u8?id=szwshd
+http://173.208.212.130:8181/720p/szws.m3u8
+#EXTBURL:http://38.75.136.137:98/gslb/dsdqpub/szwshd.m3u8?auth=testpub
 #EXTINF:-1 tvg-name="四川卫视" group-title="中国大陆 · 卫视",四川卫视
 http://38.75.136.137:98/gslb/dsdqpub/scwshd.m3u8?auth=testpub
 #EXTBURL:http://107.150.60.122/live/scwshd.m3u8
@@ -233,8 +233,8 @@ http://38.75.136.137:98/gslb/dsdqca/tjwshd.m3u8?auth=test20251009
 http://198.204.228.26/live/xzwshd.m3u8
 #EXTBURL:http://107.150.60.122/live/xzws.m3u8
 #EXTINF:-1 tvg-name="香港卫视" group-title="卫视频道",香港卫视
-https://epg.pw/stream/ad0b854c8dbe94e0e45c618aa5a6da822e8437f77ae84fdf6718423015495aaa.m3u8
-#EXTBURL:http://anren.live/HK/BSJDUFpB.m3u8
+http://anren.live/HK/BSJDUFpB.m3u8
+#EXTBURL:https://epg.pw/stream/ad0b854c8dbe94e0e45c618aa5a6da822e8437f77ae84fdf6718423015495aaa.m3u8
 #EXTBURL:https://piccpndali.v.myalicdn.com/audio/xianggangweishi_2.m3u8
 #EXTINF:-1 tvg-name="新疆卫视" group-title="中国大陆 · 卫视",新疆卫视
 http://sagrad.org:8181/3m1080p/xjws.m3u8
@@ -247,7 +247,7 @@ http://sagrad.org:8181/3m1080p/ybws.m3u8
 http://107.150.60.122/live/ynwshd.m3u8
 #EXTBURL:http://192.151.150.154/live/ynwshd.m3u8
 #EXTINF:-1 tvg-name="浙江卫视" group-title="中国大陆 · 卫视",浙江卫视
-http://63.141.230.178:82/gslb/zbdq5.m3u8?id=zjwshd
+http://107.150.60.122/live/zjwshd.m3u8
 #EXTBURL:http://ali-xwl.cztv.com/live/channel011080Plxw.m3u8
 #EXTINF:-1 tvg-name=":24" group-title="国际 · 新闻",:24
 http://88.212.15.50/live/test_trojka_25p/playlist.m3u8
@@ -261,10 +261,14 @@ http://stream.mcquack.net/180/index.m3u8
 http://61.221.215.25:8800/hls/49/index.m3u8
 #EXTINF:-1 tvg-name="(勿)(址)MovieMusic欣赏" group-title="音乐 · MV",(勿)(址)MovieMusic欣赏
 https://lotus.stingray.com/manifest/cmusic-cme004-montreal/samsungtvplus/dee3e3af-2706-3e77-a952-91b99f6d1819/5711200/manifest.m3u8
+#EXTINF:-1 tvg-name="「电影」大卫贝肯•倒霉特工熊" group-title="国际 · 综合",「电影」大卫贝肯•倒霉特工熊
+https://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/87f87ba569c147e3805f80e4844d2de9/1200.m3u8
+#EXTINF:-1 tvg-name="「电影」昆塔•反转星球" group-title="国际 · 综合",「电影」昆塔•反转星球
+https://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/3ccdecc7d6e341c1920ad4eac5d82f38/1200.m3u8
 #EXTINF:-1 tvg-name="「电影」棉花糖和云朵妈妈" group-title="国际 · 综合",「电影」棉花糖和云朵妈妈
 https://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/d8ad434c6b08421a927557a4d98da65c/1200.m3u8
-#EXTINF:-1 tvg-name="「电影」熊出没•变形记" group-title="国际 · 综合",「电影」熊出没•变形记
-https://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/1733da751de64e6e910abda889d87a26/1200.m3u8
+#EXTINF:-1 tvg-name="「电影」猪猪侠•英雄猪少年" group-title="国际 · 综合",「电影」猪猪侠•英雄猪少年
+https://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/0f03b08bc7b042358144617000fd2931/1200.m3u8
 #EXTINF:-1 tvg-name="「中」草蜢-半点心" group-title="音乐 · MV",「中」草蜢-半点心
 http://vodcdn.video.taobao.com/oss/ali-video/68fc953ff930412784dada5eb79d0821/1461058499/video.m3u8.m3u8
 #EXTINF:-1 tvg-name="「中」草蜢-宝贝对不起" group-title="音乐 · MV",「中」草蜢-宝贝对不起
@@ -452,6 +456,8 @@ https://liveprodusphoenixeast.akamaized.net/USPhx-HD/Channel-TX-USPhx-AWS-virgin
 #EXTBURL:https://liveprodusphoenixeast.akamaized.net/USPhx-HD/Channel-TX-USPhx-AWS-virginia-1/Source-USPhx-16k-1-s6lk2-BP-07-02-81ykIWnsMsg_live.m3u8?zshijd
 #EXTINF:-1 tvg-name="「US」 Newsma xTV" group-title="国际 · 新闻",「US」 Newsma xTV
 http://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
+#EXTINF:-1 tvg-name="&TV International" group-title="国际 · 综合",&TV International
+https://3f56f997.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9BbmRUVl9ITFM/playlist.m3u8
 #EXTINF:-1 tvg-name="+MaisUm" group-title="国际 · 综合",+MaisUm
 https://stream.ichibansys.com:3230/hybrid/play.m3u8
 #EXTINF:-1 tvg-name="00s Replay" group-title="国际 · 综合",00s Replay
@@ -484,7 +490,3 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5195746663405928031_hlsb.m3u8
 https://txmov2.a.kwimgs.com/bs3/video-hls/5216575810935394655_hlsb.m3u8
 #EXTINF:-1 tvg-name="1989年春晚" group-title="国际 · 综合",1989年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5194620763762726260_hlsb.m3u8
-#EXTINF:-1 tvg-name="1KZN TV" group-title="国际 · 综合",1KZN TV
-https://cdn.freevisiontv.co.za/sttv/smil:1kzn.stream.smil/playlist.m3u8
-#EXTINF:-1 tvg-name="1TV" group-title="国际 · 综合",1TV
-https://tv.cdn.xsg.ge/gpb-1tv/index.m3u8
